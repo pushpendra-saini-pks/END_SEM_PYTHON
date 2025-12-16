@@ -1,11 +1,10 @@
 import sys
 
-# ---------- Custom Exceptions ----------
 class JobError(Exception):
     pass
 
 
-# ---------- Job Class ----------
+# Job Class 
 class Job:
     MAX_CPU = 128
     MAX_MEM = 512
@@ -48,7 +47,6 @@ class Job:
         return f"CPU={self.cpu}, MEM={self.memory}, RT={self.runtime}"
 
 
-# ---------- File Utilities ----------
 def write_job(queue_file, job):
     with open(queue_file, "a") as f:
         f.write(str(job) + "\n")
@@ -59,7 +57,6 @@ def log_failure(log_file, message):
         f.write(message + "\n")
 
 
-# ---------- Main Program ----------
 def main():
     job_queue = "job_queue.txt"
     failure_log = "failure_log.txt"
